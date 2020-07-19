@@ -1,0 +1,6 @@
+.classpath
+.settings
+.project
+[bB]in/
+**/[bB]in/**
+**/[Bb]in/**/*
