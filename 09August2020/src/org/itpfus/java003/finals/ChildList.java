@@ -9,7 +9,7 @@ public class ChildList extends ParentList {
 	
 	@Override
 	public void showCity() {
-		
+		super.today
 	}
 	
 }
