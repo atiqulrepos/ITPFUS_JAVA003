@@ -1,0 +1,14 @@
+Wrapper Classes:
+Wrapper classes add additional functionality to primitive data types.
+
+byte - Byte
+short - Short
+int - Integer
+long - Long
+
+float - Float
+dobule - Double
+
+char - Char
+
+boolean - Boolean
