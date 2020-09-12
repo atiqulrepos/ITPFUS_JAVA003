@@ -2,11 +2,14 @@ package org.itpfus.java003.main;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.itpfus.java003.books.Book;
 import org.itpfus.java003.comparator.BookByPriceComparator;
+import org.itpfus.java003.comparator.BooksAuthorLastName;
 
 public class BookManager {
 
@@ -33,7 +36,7 @@ public class BookManager {
 		while(booksIter.hasNext()) {
 			Book b = booksIter.next();
 			System.out.println("Book name:" + b.getTitle());
-			System.out.println("Authro:" + b.getAuthorFirstName() + " " + b.getAuthorLastName());
+			System.out.println("Author:" + b.getAuthorFirstName() + " " + b.getAuthorLastName());
 			System.out.println("Price:" + b.getPrice());
 		}
 		
@@ -44,17 +47,29 @@ public class BookManager {
 		while(booksIter.hasNext()) {
 			Book b = booksIter.next();
 			System.out.println("Book name:" + b.getTitle());
-			System.out.println("Authro:" + b.getAuthorFirstName() + " " + b.getAuthorLastName());
+			System.out.println("Author:" + b.getAuthorFirstName() + " " + b.getAuthorLastName());
 			System.out.println("Price:" + b.getPrice());
 		}
 		
-		Collections.sort(books, new BookByPriceComparator());
+		//using custom sort
+		Collections.sort(books, new BooksAuthorLastName());
 		booksIter = books.iterator();
 		while(booksIter.hasNext()) {
 			Book bo = booksIter.next();
-			System.out.println("Title: " + bo.getTitle() + " price: " + bo.getPrice());
+			System.out.println("Author Last Name: " + bo.getAuthorLastName() + ", Price: " + bo.getPrice());
 		}
-	
+		
+		//sorting a Set
+		//set cannot be sorted using Collections.sort method. we need to convert it into a list first, then sort
+		Set<String> cities = new HashSet<>();
+		cities.add("New York");
+		cities.add("Los Angeles");
+		cities.add("Chicago");
+		List<String> citiesList = new ArrayList<String>(cities); 
+		Collections.sort(citiesList);
+		
+		System.out.println(citiesList);
+		
 	}
 
 }
